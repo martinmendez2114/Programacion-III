@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Servicio" ALTER COLUMN "precio" SET DATA TYPE TEXT,
+ALTER COLUMN "duracionEstimada" SET DATA TYPE TEXT;

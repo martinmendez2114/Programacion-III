@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Rol{
+  ESTUDIANTE
+  CLIENTE
+}
+
+enum EstadoServicio{
+   ACTIVO
+   INACTIVO
+}
+
+enum EstadoSolicitud{
+  PENDIENTE
+  ACEPTADO
+  RECHAZADO
+  COMPLETADO
+}
+ 
+ model Usuario {
+  id          String     @id @default(uuid())
+  nombre      String
+  apellido    String
+  email       String     
+  contraseña  String
+  rol         Rol        
+  createdAt   DateTime   @default(now())
+  updateAt    DateTime   @updatedAt
+
+ }
+
+ model PerfilEstudiante {
+  id               String    @id @default(uuid())
+  universidad      String
+  carrera          String
+  descripcion      String
+  habilidades      String []
+  createdAt        DateTime   @default(now())
+ }
+
+ model Servicio {
+  id               String    @id @default(uuid())
+  titulo           String
+  descripcion      String
+  categoria        String
+  estado           EstadoServicio @default(ACTIVO)
+  createdAt        DateTime   @default(now())
+  active           Boolean    @default(true)
+ }
+
+ model SolicitudServicio {
+  id             String      @id @default(uuid())
+  mensaje        String
+  estado         EstadoSolicitud @default(PENDIENTE)
+  fechaSolicitud DateTime    @default(now())
+  createdAt      DateTime   @default(now())
+}
