@@ -1,0 +1,14 @@
+.main {
+  padding: 2rem;
+  text-align: center;
+}
+
+.main h1 {
+  font-size: 2rem;
+  color: #222;
+}
+
+.main p {
+  color: #555;
+  margin-top: 1rem;
+}

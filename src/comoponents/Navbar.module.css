@@ -1,0 +1,32 @@
+.navbar {
+  background-color: #0044cc;
+  color: white;
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.links a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
